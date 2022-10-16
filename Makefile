@@ -37,6 +37,7 @@ OBJS = \
   $K/plic.o \
   $K/virtio_disk.o \
 
+
 ifeq ($(LAB),pgtbl)
 OBJS += $K/vmcopyin.o
 endif
@@ -67,7 +68,7 @@ LD = $(TOOLPREFIX)ld
 OBJCOPY = $(TOOLPREFIX)objcopy
 OBJDUMP = $(TOOLPREFIX)objdump
 
-CFLAGS = -Wall -Werror -O -fno-omit-frame-pointer -ggdb
+CFLAGS = -Wall -Wno-error -O -fno-omit-frame-pointer -ggdb
 
 ifdef LAB
 LABUPPER = $(shell echo $(LAB) | tr a-z A-Z)
@@ -149,6 +150,13 @@ UPROGS=\
 	$U/_grind\
 	$U/_wc\
 	$U/_zombie\
+	$U/_sleep\
+	$U/_find\
+	$U/_pingpong\
+	$U/_xargs\
+	$U/_primes\
+
+
 
 ifeq ($(LAB),syscall)
 UPROGS += \
